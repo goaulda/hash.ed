@@ -1,4 +1,4 @@
-package com.hash.ed;
+package com.hash;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

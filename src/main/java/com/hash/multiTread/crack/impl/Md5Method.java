@@ -1,17 +1,19 @@
-package com.hash.multiTread.crack;
+package com.hash.multiTread.crack.impl;
+
+import com.hash.multiTread.crack.CrackMethods;
+import org.springframework.stereotype.Component;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Md5Method extends CrackMethods {
+@Component
+public class Md5Method implements CrackMethods {
 
     //
     @Override
-    Map<String, String> md5hash(String password) throws NoSuchAlgorithmException {
-
-        Map<String, String> output = new HashMap<>();
+    public String md5hash(String password) throws NoSuchAlgorithmException {
 
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         messageDigest.update(password.getBytes());
@@ -21,7 +23,6 @@ public class Md5Method extends CrackMethods {
             sb.append(Integer.toHexString((int) (b & 0xff)));
         }
 
-        output.put(password, sb.toString() );
-
+        return sb.toString();
     }
 }
